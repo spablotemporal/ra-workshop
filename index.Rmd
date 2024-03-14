@@ -1,0 +1,49 @@
+---
+title: "Home"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+<img src ="img/cadms-left.png" style="width:50%;position:center">
+
+# Introduction
+
+Rapid risk assessment (RRA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RRA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RRA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RRA using open access tools and how to develop a model that can be updated and used to estimate the risk of introduction of African swine fever into a particular region.  
+
+
+## Objectives
+
+  - Familiarize with Rapid Risk assessment   
+  - Develop a scenario tree for the incursion of ASF   
+  - Identify critical control points.  
+  - Implement the model using R.  
+  
+## Requisites
+
+- Laptop or desktop computer  
+  - Software we will use:
+    - [R](https://cloud.r-project.org/) and [R studio](https://www.rstudio.com/products/rstudio/).
+
+**Please make sure you have R version >3.5**  
+
+# Pre-workshop materials
+
+An introduction to R and spatial data can be found in the following links:  
+
+  - [Introduction to R](Intro_to_R.html)
+  - [Spatial data in R](Spatial_intro)
+
+# Tentative schedule
+
+The workshop will consist on two parts, the first day we will cover the theory behind planing our model and the second day will be on the tools used to develop this.
+
+- **Day 01**, Planing your model.
+  - What is Rapid Risk Assessment?  
+  - How to plan your model?  
+  - What data is required?  
+- **Day 02**, Estimating the risk.   
+  - How to implement the model to estimate risk?  
+  - Sensitivity analysis of the model.  
+  - Scaling up the model.  
