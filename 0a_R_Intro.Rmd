@@ -51,5 +51,7 @@ As you will notice, the file section is already populated with some directories 
 
 # R syntax
 
-For this workshop we will base our code in the [tidyverse styling](https://style.tidyverse.org/index.html). For a review on some introductory concepts to R and the tidyverse syntax, we included a file inside the `code/` directory of this posit cloud project. You can access it 
+For this workshop we will base our code in the [tidyverse styling](https://style.tidyverse.org/index.html). For a review on some introductory concepts to R and the tidyverse syntax, we included a file inside the `code/` directory of this posit cloud project. You can access it by using the files panel to navigate to `code/0a_R_Intro.qmd` try to go trough the file for the workshop.
+
+![](img/0/0g_tutorial.png)
 
