@@ -1,0 +1,72 @@
+---
+title: "Risk Assessment with quantrra"
+author: "Pablo Gomez"
+format: 
+  revealjs:
+    theme: [dark, custom.scss]
+    footer: ""
+    pdf-separate-fragments: true
+editor: source
+title-slide-attributes:
+    data-background-image: img/bg_title.png
+---
+
+## Outline{background-image="img/bg.png"}
+  
+  - Risk assessment with quantrra
+    - Why we need a new risk assessment framework?
+  - Examples
+    - ASF Spain
+    - Mexico
+    - US/TT?
+    - OREI/CPS?
+  - Demo/exercise
+    - vignette
+    - shiny app
+    
+# What is this workshop
+
+What it is:
+  - Implementation of risk assessment with R and quantrra
+
+What is not:
+  - Introduction to R
+  - Introduction to risk assessment
+
+# Risk assessment with quantrra
+
+<!---
+
+Why we need this?
+
+  - Accessibility
+  - Reproducibility
+  - Transparency
+  
+all of this -> reduce the time to build/update models
+
+How are we doing it?
+
+  - Conceptual model -> Table
+  - Sensitivity analysis
+  - 
+  
+--->
+
+# Hands on practice
+
+<!---
+  
+  - Implementation in R
+  - Shiny as non-coding env
+  - 
+
+--->
+
+# Case studies
+
+<!---
+
+
+
+--->

@@ -5,4 +5,5 @@
 ra-workshop.Rproj
 
 # sys files
+.DS_Store
 misc/

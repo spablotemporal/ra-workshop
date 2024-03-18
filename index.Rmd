@@ -10,40 +10,41 @@ output:
 
 # Introduction
 
-Rapid risk assessment (RRA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RRA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RRA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RRA using open access tools and how to develop a model that can be updated and used to estimate the risk of introduction of African swine fever into a particular region.  
+Risk assessment (RA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RA using open access tools. We will use examples in animal health epidemiology.  
 
 
-## Objectives
+## Learning objectives:
 
-  - Familiarize with Rapid Risk assessment   
-  - Develop a scenario tree for the incursion of ASF   
-  - Identify critical control points.  
-  - Implement the model using R.  
+This workshop will cover the how to develop risk assessment and its implementation with R and the `quantrra` library. 
+
+## Expected outcomes:
+
+Participants will have a basic understanding on how to develop and implement risk assessment using R, and how to interpret the results of the analysis.
   
-## Requisites
+```{r echo=F, message=F}
+library(kableExtra)
+library(dplyr)
+data.frame(
+  x1 = c("How to implement a RA model with R"),
+    x2 = c("Introduction of R or probability")
+) %>% 
+  kable(col.names = c("What is this workshop:", "What is NOT:")) %>% 
+  kable_material()
+```
+  
+# Requisites
 
 - Laptop or desktop computer  
-  - Software we will use:
-    - [R](https://cloud.r-project.org/) and [R studio](https://www.rstudio.com/products/rstudio/).
+- posit.cloud account 
 
 **Please make sure you have R version >3.5**  
 
-# Pre-workshop materials
+## Pre-workshop materials
 
-An introduction to R and spatial data can be found in the following links:  
+An introduction to R and spatial data can be found in the following link: [Introduction to R](0a_R_Intro.html)  
 
-  - [Introduction to R](Intro_to_R.html)
-  - [Spatial data in R](Spatial_intro)
 
-# Tentative schedule
-
-The workshop will consist on two parts, the first day we will cover the theory behind planing our model and the second day will be on the tools used to develop this.
-
-- **Day 01**, Planing your model.
-  - What is Rapid Risk Assessment?  
-  - How to plan your model?  
-  - What data is required?  
-- **Day 02**, Estimating the risk.   
-  - How to implement the model to estimate risk?  
-  - Sensitivity analysis of the model.  
-  - Scaling up the model.  
+# Links
+  
+  - [Workshop posit project](https://posit.cloud/content/7817019) 
+  - [Pre workshop survey](https://forms.gle/KnWLkrUPwvvubXKZ7)

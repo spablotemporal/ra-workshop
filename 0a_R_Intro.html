@@ -9,9 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Pablo Gomez" />
 
 
-<title>Home</title>
+<title>Getting everything ready</title>
 
 <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -35,8 +36,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
 
@@ -375,79 +374,86 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Home</h1>
+<h1 class="title toc-ignore">Getting everything ready</h1>
+<h4 class="author">Pablo Gomez</h4>
 
 </div>
 
 
-<p><img src ="img/cadms-left.png" style="width:50%;position:center"></p>
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>Risk assessment (RA) has been proven to be a valuable tool for
-supporting decision-making. In the context of transboundary animal
-diseases, RA is critical for any disease control program to evaluate the
-risk of a potential introduction and identify areas where reinforced
-surveillance can have higher impact on reducing the risk. Although there
-are several tools available for RA, many of these tools are not very
-accessible and can be time consuming to implement. In this workshop we
-will cover basics of RA using open access tools. We will use examples in
-animal health epidemiology.</p>
-<div id="learning-objectives" class="section level2">
-<h2>Learning objectives:</h2>
-<p>This workshop will cover the how to develop risk assessment and its
-implementation with R and the <code>quantrra</code> library.</p>
+<div id="posit-cloud" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Posit Cloud</h1>
+<p>In this workshop we will be using posit cloud, which is a web based
+platform to use R without the need of installing any software. All the
+concepts covered in this workshop are directly transferable to R and
+Rstudio. <em>If you already have familiarity with R and R studio you are
+welcome to use it, but make sure you have R version &gt; 4.3.</em></p>
+<p>Follow <a href="https://posit.cloud">this link</a> to go to the posit
+homepage. If you don’t have an account yet, click on sign up and follow
+the instructions to create a free account. You can either create an
+account or link it with a google/gmail account if you already have
+one.</p>
+<p><img src="img/0/0a_positHomepage.png" style="width:60%"
+fig-align="center" /></p>
+<p><img src="img/0/0b_positPlans.png" style="width:60%"
+fig-align="center" /></p>
+<p><img src="img/0/0c_PositSignup.png" style="width:60%"
+fig-align="center" /></p>
+<p>If you are able to see the following dashboard you are all set and
+ready to start the workshop!</p>
+<p><img src="img/0/0d_positDash.png" style="width:60%"
+fig-align="center" /></p>
+<hr />
 </div>
-<div id="expected-outcomes" class="section level2">
-<h2>Expected outcomes:</h2>
-<p>Participants will have a basic understanding on how to develop and
-implement risk assessment using R, and how to interpret the results of
-the analysis.</p>
-<table class=" lightable-material" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-What is this workshop:
-</th>
-<th style="text-align:left;">
-What is NOT:
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-How to implement a RA model with R
-</td>
-<td style="text-align:left;">
-Introduction of R or probability
-</td>
-</tr>
-</tbody>
-</table>
+<div id="making-a-local-copy-of-the-workshop" class="section level1"
+number="2">
+<h1><span class="header-section-number">2</span> Making a local copy of
+the workshop</h1>
+<p>To save some time on set up and installation of libraries, I set up
+an starting point for the workshop materials in <a
+href="https://posit.cloud/content/7817019">THIS LINK</a>. When you
+follow the link, and if you are logged into your posit account, it will
+show you the following posit project:</p>
+<p><img src="img/0/0e_positProject.png" fig-align="center" /></p>
+<p>This is a temporary copy, so make sure you save a permanent copy
+using the option highlighted in red in the previous image.</p>
 </div>
-</div>
-<div id="requisites" class="section level1">
-<h1>Requisites</h1>
-<ul>
-<li>Laptop or desktop computer<br />
+<div id="the-interface" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> The interface</h1>
+<p>When we start R Studio, we can see 4 sections:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Source</strong> (top left), here we have our code editor and
+other files. We will use this section to edit and view our scripts and
+other documents we will be using to interact with R.</li>
+<li><strong>Console and Terminal</strong> (bottom left), this is where
+the code is executed (<em>Console</em> will execute R code and
+<em>Terminal</em> other code for your operating system). We can directly
+write the code here, but normally we will be using the other source
+files such as .R or .Rmd to write our code which then will be send
+here.<br />
 </li>
-<li>posit.cloud account</li>
-</ul>
-<p><strong>Please make sure you have R version &gt;3.5</strong></p>
-<div id="pre-workshop-materials" class="section level2">
-<h2>Pre-workshop materials</h2>
-<p>An introduction to R and spatial data can be found in the following
-link: <a href="0a_R_Intro.html">Introduction to R</a></p>
+<li><strong>Environment, History and others</strong> (top right),
+Environment will list all the objects you create and History will have
+the code you sent to the console. There are other tabs in this section
+which we wont be using for now.</li>
+<li><strong>Files, Packages and Help</strong> (bottom right). This
+section includes a file browser, and other tabs for package management
+and help.</li>
+</ol>
+<p><img src="img/0/0f_interface.png" /></p>
+<p>As you will notice, the file section is already populated with some
+directories that I created to organize the project. In this workshop we
+will NOT cover any topics on project organization or the interface in
+detail, if you want to learn more, have a look at <a
+href="https://www.spablo-temporal.network/DataViz-workshop/0a_Intro_RstudioMarkdown.html">this
+other tutorial</a>.</p>
 </div>
-</div>
-<div id="links" class="section level1">
-<h1>Links</h1>
-<ul>
-<li><a href="https://posit.cloud/content/7817019">Workshop posit
-project</a></li>
-<li><a href="https://forms.gle/KnWLkrUPwvvubXKZ7">Pre workshop
-survey</a></li>
-</ul>
+<div id="r-syntax" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> R syntax</h1>
+<p>For this workshop we will base our code in the <a
+href="https://style.tidyverse.org/index.html">tidyverse styling</a>. For
+a review on some introductory concepts to R and the tidyverse syntax, we
+included a file inside the <code>code/</code> directory of this posit
+cloud project. You can access it</p>
 </div>
 
 
