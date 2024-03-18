@@ -11,7 +11,7 @@ output:
 
 # Posit Cloud
 
-In this workshop we will be using posit cloud, which is a web based platform to use R without the need of installing any software. All the concepts covered in this workshop are directly transferable to R and Rstudio. *If you already have familiarity with R and R studio you are welcome to use it, but make sure you have R version > 4.3.*
+In this workshop we will be using posit cloud, which is a web based platform to use R without the need of installing any software. All the concepts covered in this workshop are directly transferable to R and Rstudio.
 
 Follow [this link](https://posit.cloud) to go to the posit homepage. If you don't have an account yet, click on sign up and follow the instructions to create a free account. You can either create an account or link it with a google/gmail account if you already have one.  
 
@@ -30,11 +30,11 @@ If you are able to see the following dashboard you are all set and ready to star
 
 # Making a local copy of the workshop
 
-To save some time on set up and installation of libraries, I set up an starting point for the workshop materials in [THIS LINK](https://posit.cloud/content/7817019). When you follow the link, and if you are logged into your posit account, it will show you the following posit project:
+To save us some time on the installation of libraries, I already set up an starting point for the workshop materials in [THIS LINK](https://posit.cloud/content/7817019). When you follow the link, and if you are logged into your posit account, it will show you the following posit project:
 
 ![](img/0/0e_positProject.png){fig-align="center"}
 
-This is a temporary copy, so make sure you save a permanent copy using the option highlighted in red in the previous image.
+This is a temporary copy, so make sure you save a permanent copy for your account using the option highlighted in red in the previous image.
 
 # The interface
 
@@ -51,7 +51,7 @@ As you will notice, the file section is already populated with some directories 
 
 # R syntax
 
-For this workshop we will base our code in the [tidyverse styling](https://style.tidyverse.org/index.html). For a review on some introductory concepts to R and the tidyverse syntax, we included a file inside the `code/` directory of this posit cloud project. You can access it by using the files panel to navigate to `code/0a_R_Intro.qmd` try to go trough the file for the workshop.
+For this workshop we will base our code in the [tidyverse styling](https://style.tidyverse.org/index.html). For a review on some introductory concepts to R and the tidyverse syntax, we included a qmd file inside the `code/` directory of this posit cloud project. You can access it by using the files panel and navigate to `code/0a_R_Intro.qmd` try to go trough the file for the workshop to make sure you are familiarized to some of the syntax we will be using.
 
 ![](img/0/0g_tutorial.png)
 
