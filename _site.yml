@@ -14,12 +14,7 @@ navbar:
   - text: Home
     href: index.html
   - text: Pre Workshop 
-    menu:
-    - text: Intro to R
-      href: Intro_a_R.html
-    - text: Intro to Spatial data
-      href: Espacial_Intro.html
-  
+    href: 0a_R_Intro.html
   - text: Contact
     menu:
     - icon: fa-server
