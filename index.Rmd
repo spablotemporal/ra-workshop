@@ -11,15 +11,8 @@ output:
 # Introduction
 
 Risk assessment (RA) has been proven to be a valuable tool for supporting decision-making. In the context of transboundary animal diseases, RA is critical for any disease control program to evaluate the risk of a potential introduction and identify areas where reinforced surveillance can have higher impact on reducing the risk. Although there are several tools available for RA, many of these tools are not very accessible and can be time consuming to implement. In this workshop we will cover basics of RA using open access tools. We will use examples in animal health epidemiology.  
-
-
-## Learning objectives:
-
-This workshop will cover the how to develop risk assessment and its implementation with R and the `quantrra` library. 
-
-## Expected outcomes:
-
-Participants will have a basic understanding on how to develop and implement risk assessment using R, and how to interpret the results of the analysis.
+*Learning objectives*: This workshop will cover the how to develop risk assessment and its implementation with R and the `quantrra` library.  
+*Expected outcomes:* Participants will have a basic understanding on how to develop and implement risk assessment using R, and how to interpret the results of the analysis.  
   
 ```{r echo=F, message=F}
 library(kableExtra)
@@ -35,9 +28,8 @@ data.frame(
 # Requisites
 
 - Laptop or desktop computer  
-- posit.cloud account 
+- [posit.cloud account](https://posit.cloud/content/yours?sort=name_asc) 
 
-**Please make sure you have R version >3.5**  
 
 ## Pre-workshop materials
 
