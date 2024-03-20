@@ -209,6 +209,8 @@ ra_sample(x = 'pert(0.01,  0.03, 0.64)', n = 10e3) %>%
 
 ## quantrra{background-image="img/bg.png"}
 
+</br>
+
 ![](img/ra/ModelTbl.png){fig-align="center"}
 
 ::: notes
