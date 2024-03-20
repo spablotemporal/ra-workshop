@@ -11,10 +11,20 @@ title-slide-attributes:
     data-background-image: img/bg_title.png
 ---
 
+```{r setup, warning=F, message=F}
+knitr::opts_chunk$set(echo=T)
+library(dplyr); library(quantrra)
+```
+
+<!--
 ## Outline{background-image="img/bg.png"}
   
   - Risk assessment with quantrra
     - Why we need a new risk assessment framework?
+    - Co-development with experts
+    - Open source
+    - Collaborative
+    - Reproducibility
   - Examples
     - ASF Spain
     - Mexico
@@ -23,17 +33,115 @@ title-slide-attributes:
   - Demo/exercise
     - vignette
     - shiny app
+
+-->
     
-# What is this workshop
+## What is this workshop{background-image="img/bg.png"}
+</br>
 
+::::{.columns style="color:#002000"}
+
+:::{.column width="50%'}
+
+![Pablo G](img/hs_pg.JPG){width="65%"}
+
+::::
+
+:::{.column width="50%'}
+
+![Beatriz ML](img/hs_bml.jpg)
+
+::::
+
+::::
+
+![](img/cadms-left.png){.absolute bottom=0 left=300 width="25%"}
+
+## What is this workshop{background-image="img/bg.png"}
+</br>
+
+::::{.columns}
+:::{.column width="50%" .fragment .fade-in fragment-index=0 style="color:#002000"}
 What it is:
+  
   - Implementation of risk assessment with R and quantrra
+  
+:::
 
+:::{.column width="50%" .fragment .fade-in fragment-index=1 style="color:#002000"}
 What is not:
+  
   - Introduction to R
   - Introduction to risk assessment
 
-# Risk assessment with quantrra
+:::
+::::
+
+## Outline of the day{background-image="img/bg.png"}
+
+<br/>
+
+::: incremental
+-   [Introduction]{.black}
+-   [Hands on practice]{.black}
+-   [More example]{.black}
+-   [Future directions]{.black}
+:::
+
+
+## Posit cloud {background-image="img/bg.png"}
+<br/> 
+
+<https://posit.cloud>
+
+![](img/0d_positDash.png){width="80%" fig-align="center"}
+
+# Risk assessment with quantrra{background-image="img/bg_title.png"}
+
+## Risk assessment {background-image="img/bg.png"}
+
+</br>
+
+:::{.r-stack}
+
+![](img/ra/RiskAnalysisComponents.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center"}
+
+
+![](img/ra/ra-classifications.png){.fragment .fade-in-then-out fragment-index=2 fig-align="center"}
+
+
+:::
+
+::: notes
+Risk assessment is such a fundamental activity that a log of agencies benefit from to inform their decision making process. In the context of animal health, risk assessment informa policy regarding imports of animal products. There is plenty of documentation of how to do risk assessment and there are many different methodologies to implement it
+:::
+
+## Current challenges with RA {background-image="img/bg.png"}
+
+:::{.r-stack}
+
+![](img/ra/ra_aRisk.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center"}
+
+
+![](img/ra/aRisk_price.png){.fragment .fade-in-then-out fragment-index=2 fig-align="center"}
+
+
+![](img/ra/ra_alternatives.png){.fragment .fade-in-then-out fragment-index=3 fig-align="center" width="60%"}
+
+
+:::
+
+::: notes
+One of the main challenges on the implementation, is that a risk assessment can take several months to perform. Outside academia, there is pretty much a monopoly on the tools used to develop the models. 
+Lumivero, previously known as palisade, is the company that sells @Risk, which is a excel plug in to perform risk assessment. This plug in is very user friendly, most of people already know exel, so provides a realatively decent solution for performing risk assessment. 
+<!-- NEXT -->
+The main issue with this, is that the price of the license can be pretty inaccesible to individuals and even to some health departments. 
+<!-- NEXT -->
+There are some alternatives to this, but most of them rely on programming languages, which can represent a barrier.
+
+:::
+
+<!-- ## Risk assessment with quantrra{background-image="img/bg.png"} -->
 
 <!---
 
@@ -53,20 +161,152 @@ How are we doing it?
   
 --->
 
-# Hands on practice
 
-<!---
+## QuantRRA {background-image="img/bg.png"}
+
+::::{.columns}
+
+:::{.column width="33%"}
+![](img/ra/github.png){.fragment .fade-in fragment-index=1 fig-align="center"}
+
+:::
+
+:::{.column width="33%"}
+![](img/ra/shiny.png){.fragment .fade-in fragment-index=2 fig-align="center"}
+
+:::
+
+:::{.column width="33%"}
+
+![](img/ra/paper.png){.fragment .fade-in fragment-index=3 fig-align="center"}
+:::
+
+::::
+
+::: notes
+To provide an alternative to this, we developed a platform specifically to implement risk assessment. The platform is implemented following the recommendations of the OIE and FAO manuals, and it is implemented in the form of an R package and an interactive user interface.
+:::
+
+
+## quantrra{background-image="img/bg.png"}
+
+</br>
+
+```{r ra_sample}
+# Sample from distributions
+ra_sample(x = 'pert(0.01,  0.03, 0.64)', n = 10)
+```
+
+## quantrra{background-image="img/bg.png"}
+
+</br>
+```{r ra_plot_dist}
+ra_sample(x = 'pert(0.01,  0.03, 0.64)', n = 10e3) %>% 
+  ra_plot_dist() # plot the distribution
+```
+
+
+
+## quantrra{background-image="img/bg.png"}
+
+![](img/ra/ModelTbl.png){fig-align="center"}
+
+::: notes
+This platform facilitates to the user the translation of conceptual decision trees, into quantitative risk assessment models. 
+:::
+
+## quantrra{background-image="img/bg.png"}
+
+</br>
+```{r ra_run}
+# define a model table using one of the provided examples
+m <- quantrra::OIRSA
+
+ra_run(m = m$nodes, nsim = 10) # Run the model 
+```
+
+
+## RA: Example {background-image="img/bg.png"}
+
+<br>
+
+![](img/ra/ra-demo.mp4){width="80%" fig-align="center"}
+
+[Demo](http://spablotemporal.shinyapps.io/QuantRRA/){preview-link="true"}
+
+:::{.notes}
   
-  - Implementation in R
-  - Shiny as non-coding env
-  - 
-
---->
-
-# Case studies
-
-<!---
-
+  - Explain the problem with risk assessment
+  - How do we address this problem
+  - Examples:
+    - ASF Carolina
+    - ASF US
+    - FMD Ecuador
+   
+:::
 
 
---->
+## Example of ASF in Spain{background-image="img/bg.png"}
+
+:::{.r-stack}
+
+![](img/ra/ra-visavet.png){.fragment .fade-in-then-out fragment-index=0 fig-align="center"}
+
+![](img/ra/CarolinaModelTree.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center"}
+
+![](img/ra/CarolinaModelTbl.png){.fragment .fade-in-then-out fragment-index=2 fig-align="center"}
+
+![](img/ra/Carolina_Comparison.png){.fragment .fade-in-then-out fragment-index=3 fig-align="center" width="70%"}
+
+:::
+
+
+::: notes
+Few months ago we had a collaboration with the Visavet group from the Universidad complutense de Madrid, where we used QuantRRA to implement a risk assessment model to estimate the risk of introduction of ASF into spain via legal import of swine products
+<!-- NEXT -->
+This is the conceptual model that the student developed, 
+<!-- NEXT -->
+Then we implemented it on QuantRRA to estimate the risk
+<!-- NEXT -->
+and we compared the results of QuantRRA with the ones obtained using the benchmark software @Risk. 
+Most of the information used in the model was from literature and data regarding the imports of products into the country
+:::
+
+# [Hands on practice](https://posit.cloud/content/7817019)
+
+# More examples{background-image="img/bg_title.png"}
+
+## Animal health{background-image="img/bg.png"}
+
+![](img/ss-01.jpg){.absolute left=0 top=120 width="50%" .fragment .fade-in fragment-index=0}
+
+![](img/ss-02.png){.absolute left=0 bottom=30 width="50%" .fragment .fade-in fragment-index=0}
+![](img/paho.png){.absolute left=0 bottom=0 width="10%" .fragment .fade-in fragment-index=0}
+![](img/procinorte.png){.absolute left=250 bottom=5 width="10%" .fragment .fade-in fragment-index=0}
+
+![](img/ss-03.png){.absolute right=0 bottom=0 width="40%" .fragment .fade-in fragment-index=1}
+
+
+
+## Food safety{background-image="img/bg.png"}
+
+![](img/orei-demo.mov)
+
+
+## Multilevel architecture{background-image="img/bg.png"}
+
+![](img/mlm.png)
+
+## Multilevel architecture{background-image="img/bg.png"}
+
+![](img/mlm.png){.absolute top=100 left=800 width="25%"}
+
+![](img/mlm1.png){.absolute top=100 left=20 width="60%" .fragment .fade-in fragment-index=0}
+
+![](img/mlm2.png){.absolute top=200 left=80 width="60%" .fragment .fade-in fragment-index=1}
+
+![](img/mlm3.png){.absolute top=300 left=200 width="60%" .fragment .fade-in fragment-index=2}
+
+# Questions?{background-image="img/bg_title.png"}
+
+jpgo@ucdavis.edu

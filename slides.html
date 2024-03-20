@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Pablo Gomez">
-  <title>Risk Analysis with quantrra</title>
+  <title>Risk Assessment with quantrra</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto.css">
   <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -326,7 +391,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="img/bg_title.png" class="quarto-title-block center">
-  <h1 class="title">Risk Analysis with quantrra</h1>
+  <h1 class="title">Risk Assessment with quantrra</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -337,26 +402,384 @@ Pablo Gomez
 </div>
 
 </section>
-<section id="outline" class="slide level2" data-background-image="img/bg.png">
-<h2>Outline</h2>
+<section class="slide level2">
+
+<!--
+## Outline{background-image="img/bg.png"}
+  
+  - Risk assessment with quantrra
+    - Why we need a new risk assessment framework?
+    - Co-development with experts
+    - Open source
+    - Collaborative
+    - Reproducibility
+  - Examples
+    - ASF Spain
+    - Mexico
+    - US/TT?
+    - OREI/CPS?
+  - Demo/exercise
+    - vignette
+    - shiny app
+
+-->
+</section>
+<section id="what-is-this-workshop" class="slide level2" data-background-image="img/bg.png">
+<h2>What is this workshop</h2>
+<p><br></p>
+<div class="columns" style="color:#002000">
+<div class="column" style="width:&quot;50%';">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hs_pg.JPG" style="width:65.0%"></p>
+<figcaption>Pablo G</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:&quot;50%';">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hs_bml.jpg"></p>
+<figcaption>Beatriz ML</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><img data-src="img/cadms-left.png" class="absolute" style="left: 300px; bottom: 0px; width: 25%; "></p>
+</section>
+<section id="what-is-this-workshop-1" class="slide level2" data-background-image="img/bg.png">
+<h2>What is this workshop</h2>
+<p><br></p>
+<div class="columns">
+<div class="column fragment fade-in" data-fragment-index="0" style="color:#002000">
+<p>What it is:</p>
 <ul>
-<li>Risk assessment with quantrra
+<li>Implementation of risk assessment with R and quantrra</li>
+</ul>
+</div><div class="column fragment fade-in" data-fragment-index="1" style="color:#002000">
+<p>What is not:</p>
 <ul>
-<li>Why we need a new risk assessment framework?</li>
-</ul></li>
-<li>Examples
+<li>Introduction to R</li>
+<li>Introduction to risk assessment</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="outline-of-the-day" class="slide level2" data-background-image="img/bg.png">
+<h2>Outline of the day</h2>
+<p><br></p>
+<div>
 <ul>
-<li>ASF Spain</li>
-<li>Mexico</li>
-<li>US/TT?</li>
-<li>OREI/CPS?</li>
-</ul></li>
-<li>Demo/exercise
+<li class="fragment"><span class="black">Introduction</span></li>
+<li class="fragment"><span class="black">Hands on practice</span></li>
+<li class="fragment"><span class="black">More example</span></li>
+<li class="fragment"><span class="black">Future directions</span></li>
+</ul>
+</div>
+</section>
+<section id="posit-cloud" class="slide level2" data-background-image="img/bg.png">
+<h2>Posit cloud</h2>
+<p><br></p>
+<p><a href="https://posit.cloud" class="uri">https://posit.cloud</a></p>
+
+<img data-src="img/0d_positDash.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
+<section>
+<section id="risk-assessment-with-quantrra" class="title-slide slide level1 center" data-background-image="img/bg_title.png">
+<h1>Risk assessment with quantrra</h1>
+
+</section>
+<section id="risk-assessment" class="slide level2" data-background-image="img/bg.png">
+<h2>Risk assessment</h2>
+<p><br></p>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/RiskAnalysisComponents.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/ra-classifications.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2"></p>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<p>Risk assessment is such a fundamental activity that a log of agencies benefit from to inform their decision making process. In the context of animal health, risk assessment informa policy regarding imports of animal products. There is plenty of documentation of how to do risk assessment and there are many different methodologies to implement it</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="current-challenges-with-ra" class="slide level2" data-background-image="img/bg.png">
+<h2>Current challenges with RA</h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/ra_aRisk.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/aRisk_price.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/ra_alternatives.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" style="width:60.0%" data-fragment-index="3"></p>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<p>One of the main challenges on the implementation, is that a risk assessment can take several months to perform. Outside academia, there is pretty much a monopoly on the tools used to develop the models. Lumivero, previously known as palisade, is the company that sells <span class="citation" data-cites="Risk">@Risk</span>, which is a excel plug in to perform risk assessment. This plug in is very user friendly, most of people already know exel, so provides a realatively decent solution for performing risk assessment. <!-- NEXT --> The main issue with this, is that the price of the license can be pretty inaccesible to individuals and even to some health departments. <!-- NEXT --> There are some alternatives to this, but most of them rely on programming languages, which can represent a barrier.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- ## Risk assessment with quantrra{background-image="img/bg.png"} -->
+<!---
+
+Why we need this?
+
+  - Accessibility
+  - Reproducibility
+  - Transparency
+  
+all of this -> reduce the time to build/update models
+
+How are we doing it?
+
+  - Conceptual model -> Table
+  - Sensitivity analysis
+  - 
+  
+--->
+</section>
+<section id="quantrra" class="slide level2" data-background-image="img/bg.png">
+<h2>QuantRRA</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/github.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="1"></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/shiny.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="2"></p>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/paper.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="3"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>To provide an alternative to this, we developed a platform specifically to implement risk assessment. The platform is implemented following the recommendations of the OIE and FAO manuals, and it is implemented in the form of an R package and an interactive user interface.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="quantrra-1" class="slide level2" data-background-image="img/bg.png">
+<h2>quantrra</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Sample from distributions</span></span>
+<span id="cb1-2"><a href=""></a><span class="fu">ra_sample</span>(<span class="at">x =</span> <span class="st">'pert(0.01,  0.03, 0.64)'</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0.01845909 0.16016232 0.13883812 0.12766274 0.32400536 0.23636880
+ [7] 0.21912656 0.13438208 0.09127296 0.19323584</code></pre>
+</div>
+</div>
+</section>
+<section id="quantrra-2" class="slide level2" data-background-image="img/bg.png">
+<h2>quantrra</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">ra_sample</span>(<span class="at">x =</span> <span class="st">'pert(0.01,  0.03, 0.64)'</span>, <span class="at">n =</span> <span class="fl">10e3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href=""></a>  <span class="fu">ra_plot_dist</span>() <span class="co"># plot the distribution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/ra_plot_dist-1.png" width="960" class="r-stretch"></section>
+<section id="quantrra-3" class="slide level2" data-background-image="img/bg.png">
+<h2>quantrra</h2>
+
+<img data-src="img/ra/ModelTbl.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
+<p>This platform facilitates to the user the translation of conceptual decision trees, into quantitative risk assessment models.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="quantrra-4" class="slide level2" data-background-image="img/bg.png">
+<h2>quantrra</h2>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># define a model table using one of the provided examples</span></span>
+<span id="cb4-2"><a href=""></a>m <span class="ot">&lt;-</span> quantrra<span class="sc">::</span>OIRSA</span>
+<span id="cb4-3"><a href=""></a></span>
+<span id="cb4-4"><a href=""></a><span class="fu">ra_run</span>(<span class="at">m =</span> m<span class="sc">$</span>nodes, <span class="at">nsim =</span> <span class="dv">10</span>) <span class="co"># Run the model </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          P1         P2        P3        R1        R2       H1       H2
+1  0.5311286 0.06170627 0.2638588 0.7829619 0.7329034  5.55582 52.05526
+2  0.2790897 0.02777466 0.3106108 0.4439875 0.4513280 32.34967 30.12297
+3  0.6198387 0.10820951 0.4129814 0.9478434 0.3076857 47.63007 20.94782
+4  0.2597063 0.18124874 0.2528263 0.6393802 0.2644234 67.03314 39.45881
+5  0.5299334 0.08627384 0.3167102 0.7097447 0.7914988 40.20568 15.23432
+6  0.4405300 0.05384544 0.2828663 0.6472805 0.4838573 81.88681 31.58972
+7  0.4691119 0.11031784 0.2847368 0.4388322 0.2714567 24.21143 58.94356
+8  0.6089695 0.05119404 0.1342332 0.3743149 0.5693070 10.12981 25.90251
+9  0.5143219 0.04169169 0.1602070 0.6963970 0.4750188 59.26056 23.00135
+10 0.4325272 0.07821174 0.3136237 0.8736058 0.4984880 25.39129 45.36126
+            P4        R3            X         Z          P
+1  0.008647698 0.5738354 0.0049623550  57.61108 0.28588662
+2  0.002407737 0.2003840 0.0004824720  62.47264 0.03014130
+3  0.027699673 0.2916379 0.0080782740  68.57789 0.55399101
+4  0.011900900 0.1690671 0.0020120503 106.49195 0.21426717
+5  0.014479797 0.5617621 0.0081342008  55.44000 0.45096007
+6  0.006709740 0.3131914 0.0021014328 113.47653 0.23846330
+7  0.014735531 0.1191239 0.0017553545  83.15500 0.14596650
+8  0.004184801 0.2131001 0.0008917814  36.03232 0.03213295
+9  0.003435312 0.3308016 0.0011364068  82.26192 0.09348300
+10 0.010609484 0.4354820 0.0046202394  70.75255 0.32689373</code></pre>
+</div>
+</div>
+</section>
+<section id="ra-example" class="slide level2" data-background-image="img/bg.png">
+<h2>RA: Example</h2>
+<p><br></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><video data-src="img/ra/ra-demo.mp4" class="quarto-figure quarto-figure-center" style="width:80.0%" controls=""><a href="img/ra/ra-demo.mp4">Video</a></video></p>
+</figure>
+</div>
+<p><a href="http://spablotemporal.shinyapps.io/QuantRRA/" data-preview-link="true">Demo</a></p>
+<aside class="notes">
 <ul>
-<li>vignette</li>
-<li>shiny app</li>
+<li>Explain the problem with risk assessment</li>
+<li>How do we address this problem</li>
+<li>Examples:
+<ul>
+<li>ASF Carolina</li>
+<li>ASF US</li>
+<li>FMD Ecuador</li>
 </ul></li>
 </ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="example-of-asf-in-spain" class="slide level2" data-background-image="img/bg.png">
+<h2>Example of ASF in Spain</h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/ra-visavet.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="0"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/CarolinaModelTree.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="1"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/CarolinaModelTbl.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ra/Carolina_Comparison.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" style="width:70.0%" data-fragment-index="3"></p>
+</figure>
+</div>
+</div>
+<aside class="notes">
+<p>Few months ago we had a collaboration with the Visavet group from the Universidad complutense de Madrid, where we used QuantRRA to implement a risk assessment model to estimate the risk of introduction of ASF into spain via legal import of swine products <!-- NEXT --> This is the conceptual model that the student developed, <!-- NEXT --> Then we implemented it on QuantRRA to estimate the risk <!-- NEXT --> and we compared the results of QuantRRA with the ones obtained using the benchmark software <span class="citation" data-cites="Risk">@Risk</span>. Most of the information used in the model was from literature and data regarding the imports of products into the country</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="hands-on-practice" class="title-slide slide level1 center">
+<h1><a href="https://posit.cloud/content/7817019">Hands on practice</a></h1>
+
+</section>
+
+<section>
+<section id="more-examples" class="title-slide slide level1 center" data-background-image="img/bg_title.png">
+<h1>More examples</h1>
+
+</section>
+<section id="animal-health" class="slide level2" data-background-image="img/bg.png">
+<h2>Animal health</h2>
+<p><img data-src="img/ss-01.jpg" class="absolute fragment fade-in" style="top: 120px; left: 0px; width: 50%; " data-fragment-index="0"></p>
+<p><img data-src="img/ss-02.png" class="absolute fragment fade-in" style="left: 0px; bottom: 30px; width: 50%; " data-fragment-index="0"> <img data-src="img/paho.png" class="absolute fragment fade-in" style="left: 0px; bottom: 0px; width: 10%; " data-fragment-index="0"> <img data-src="img/procinorte.png" class="absolute fragment fade-in" style="left: 250px; bottom: 5px; width: 10%; " data-fragment-index="0"></p>
+<p><img data-src="img/ss-03.png" class="absolute fragment fade-in" style="bottom: 0px; right: 0px; width: 40%; " data-fragment-index="1"></p>
+</section>
+<section id="food-safety" class="slide level2" data-background-image="img/bg.png">
+<h2>Food safety</h2>
+<p><video data-src="img/orei-demo.mov" controls=""><a href="img/orei-demo.mov">Video</a></video></p>
+</section>
+<section id="multilevel-architecture" class="slide level2" data-background-image="img/bg.png">
+<h2>Multilevel architecture</h2>
+
+<img data-src="img/mlm.png" class="r-stretch"></section>
+<section id="multilevel-architecture-1" class="slide level2" data-background-image="img/bg.png">
+<h2>Multilevel architecture</h2>
+<p><img data-src="img/mlm.png" class="absolute" style="top: 100px; left: 800px; width: 25%; "></p>
+<p><img data-src="img/mlm1.png" class="absolute fragment fade-in" style="top: 100px; left: 20px; width: 60%; " data-fragment-index="0"></p>
+<p><img data-src="img/mlm2.png" class="absolute fragment fade-in" style="top: 200px; left: 80px; width: 60%; " data-fragment-index="1"></p>
+<p><img data-src="img/mlm3.png" class="absolute fragment fade-in" style="top: 300px; left: 200px; width: 60%; " data-fragment-index="2"></p>
+</section></section>
+<section id="questions" class="title-slide slide level1 center" data-background-image="img/bg_title.png">
+<h1>Questions?</h1>
+<p>jpgo@ucdavis.edu</p>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -573,6 +996,44 @@ Pablo Gomez
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

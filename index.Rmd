@@ -39,4 +39,3 @@ An introduction to R and spatial data can be found in the following link: [Intro
 # Links
   
   - [Workshop posit project](https://posit.cloud/content/7817019) 
-  - [Pre workshop survey](https://forms.gle/KnWLkrUPwvvubXKZ7)
