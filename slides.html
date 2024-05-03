@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.549">
 
   <meta name="author" content="Pablo Gomez">
-  <title>Risk Assessment with quantrra</title>
+  <title>Rapid Risk Assessment</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -391,7 +391,7 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="img/bg_title.png" class="quarto-title-block center">
-  <h1 class="title">Risk Assessment with quantrra</h1>
+  <h1 class="title">Rapid Risk Assessment</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -407,6 +407,21 @@ Pablo Gomez
 <!--
 ## Outline{background-image="img/bg.png"}
   
+  - Rapid risk assessment
+    - Integrating multiple sources:
+      - Observational data
+      - Literature
+      - Expert opinion
+        - 
+      - Understanding the uncertainty
+        - Sensitivity analysis
+      - Engage stakeholders
+      - Start simple, add complexity as needed
+      - Identify assumptions
+      - Perform sensitivity analysis, to identify sources of uncertainty and key parameters
+      - Iterate, update the model with new data, evidence and/or needs
+      - 
+      
   - Risk assessment with quantrra
     - Why we need a new risk assessment framework?
     - Co-development with experts
@@ -421,58 +436,68 @@ Pablo Gomez
   - Demo/exercise
     - vignette
     - shiny app
+  - Intro to R (recap)
 
 -->
+<!---
+    
+## What is this workshop{background-image="img/bg.png"}
+</br>
+
+::::{.columns style="color:#002000"}
+
+:::{.column width="50%'}
+
+![Pablo G](img/hs_pg.JPG){width="65%"}
+
+::::
+
+:::{.column width="50%'}
+
+![Beatriz ML](img/hs_bml.jpg)
+
+::::
+
+::::
+
+![](img/cadms-left.png){.absolute bottom=0 left=300 width="25%"}
+
+## What is this workshop{background-image="img/bg.png"}
+</br>
+
+::::{.columns}
+:::{.column width="50%" .fragment .fade-in fragment-index=0 style="color:#002000"}
+What it is:
+  
+  - Implementation of risk assessment with R and quantrra
+  
+:::
+
+:::{.column width="50%" .fragment .fade-in fragment-index=1 style="color:#002000"}
+What is not:
+  
+  - Introduction to R
+  - Introduction to risk assessment
+
+:::
+::::
+
+--->
 </section>
-<section id="what-is-this-workshop" class="slide level2" data-background-image="img/bg.png">
-<h2>What is this workshop</h2>
-<p><br></p>
-<div class="columns" style="color:#002000">
-<div class="column" style="width:&quot;50%';">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/hs_pg.JPG" style="width:65.0%"></p>
-<figcaption>Pablo G</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:&quot;50%';">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/hs_bml.jpg"></p>
-<figcaption>Beatriz ML</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p><img data-src="img/cadms-left.png" class="absolute" style="left: 300px; bottom: 0px; width: 25%; "></p>
-</section>
-<section id="what-is-this-workshop-1" class="slide level2" data-background-image="img/bg.png">
-<h2>What is this workshop</h2>
-<p><br></p>
-<div class="columns">
-<div class="column fragment fade-in" data-fragment-index="0" style="color:#002000">
-<p>What it is:</p>
-<ul>
-<li>Implementation of risk assessment with R and quantrra</li>
-</ul>
-</div><div class="column fragment fade-in" data-fragment-index="1" style="color:#002000">
-<p>What is not:</p>
-<ul>
-<li>Introduction to R</li>
-<li>Introduction to risk assessment</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="outline-of-the-day" class="slide level2" data-background-image="img/bg.png">
-<h2>Outline of the day</h2>
+<section id="outline" class="slide level2" data-background-image="img/bg.png">
+<h2>Outline</h2>
 <p><br></p>
 <div>
 <ul>
-<li class="fragment"><span class="black">Introduction</span></li>
+<li class="fragment"><span class="black">Introduction</span>
+<ul>
+<li class="fragment"><span class="black">What is rapid risk assessment?</span></li>
+<li class="fragment"><span class="black">Integrating data from different sources</span></li>
+<li class="fragment"><span class="black">Sensitivity analysis</span></li>
+</ul></li>
+<li class="fragment"><span class="black">Risk assessment in R</span></li>
 <li class="fragment"><span class="black">Hands on practice</span></li>
-<li class="fragment"><span class="black">More example</span></li>
-<li class="fragment"><span class="black">Future directions</span></li>
+<li class="fragment"><span class="black">More example</span> <!-- -   [Future directions]{.black} --></li>
 </ul>
 </div>
 </section>
@@ -483,12 +508,15 @@ Pablo Gomez
 
 <img data-src="img/0d_positDash.png" class="quarto-figure quarto-figure-center r-stretch" style="width:80.0%"></section>
 <section>
-<section id="risk-assessment-with-quantrra" class="title-slide slide level1 center" data-background-image="img/bg_title.png">
-<h1>Risk assessment with quantrra</h1>
+<section id="introduction" class="title-slide slide level1 center" data-background-image="img/bg_title.png">
+<h1>Introduction</h1>
 
 </section>
 <section id="risk-assessment" class="slide level2" data-background-image="img/bg.png">
 <h2>Risk assessment</h2>
+</section>
+<section id="rapid-risk-assessment" class="slide level2" data-background-image="img/bg.png">
+<h2>Rapid Risk Assessment?</h2>
 <p><br></p>
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
@@ -498,12 +526,18 @@ Pablo Gomez
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/ra/ra-classifications.png" class="fragment fade-in-then-out quarto-figure quarto-figure-center" data-fragment-index="2"></p>
+<p><img data-src="img/ra/ra-classifications.png" class="fragment fade-in quarto-figure quarto-figure-center" data-fragment-index="2"></p>
 </figure>
 </div>
+<p><img data-src="img/ra1.jpg" class="fragment fade-in absolute" style="bottom: 5px; " data-fragment-index="3"> <img data-src="img/rra1.png" class="fragment fade-in absolute" style="left: 5px; bottom: 5px; width: 20%; " data-fragment-index="4"></p>
+<p><img data-src="img/rra2.png" class="fragment fade-in absolute" style="left: 150px; bottom: 20px; width: 20%; " data-fragment-index="4"></p>
 </div>
 <aside class="notes">
-<p>Risk assessment is such a fundamental activity that a log of agencies benefit from to inform their decision making process. In the context of animal health, risk assessment informa policy regarding imports of animal products. There is plenty of documentation of how to do risk assessment and there are many different methodologies to implement it</p>
+<p>Risk assessment is such a fundamental activity that a lot of agencies benefit from to inform their decision making process. In the context of animal health, risk assessment inform a policy regarding imports of animal products. There is plenty of documentation of how to do risk assessment and there are many different methodologies to implement it</p>
+<p>The overall process of risk assessment can take several months. When we talk about Rapid risk assessment (RRA) we just refer to an accelerated process in which the In the absence of observational data or data collection, RRA leverages the lack of information with literature and expert opinion.</p>
+<p>These are usually implemented in the initial stages of an adverse public health event, wheras formal risk assessments are produced at a later stage of an event, usually when more time and information is available.</p>
+<p>In the lack of information to conduct a torough risk assessment,</p>
+<p>The main objective is to develop an operational tool to facilitate rapid risk assessments for communicable disease incidents, drawing on the systematic methods used in evidence-based medicine or evidence-based practice where possible.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -515,6 +549,66 @@ Pablo Gomez
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="integrating-data-from-multiple-sources" class="slide level2" data-background-image="img/bg.png">
+<h2><span class="r-fit-text">Integrating data from multiple sources</span></h2>
+<div class="r-stack">
+<div class="fragment fade-in-then-out black" data-fragment-index="1">
+<p><span style="font-size: 200%; color:#CF2000; text-align:center">Observational/Experimental data</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Fitting distributions</p>
+<p><img data-src="img/dist-fit.png"></p>
+</div><div class="column" style="width:50%;">
+<p>Summary statistics (min, max, mean, median)</p>
+<p><img data-src="img/summary-stats.png"></p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in-then-out black" data-fragment-index="2">
+<p><span style="font-size: 250%; color:#CF2000; text-align:center">Literature</span></p>
+<p><img data-src="img/lit.png"></p>
+</div>
+<div class="fragment fade-in-then-out black" data-fragment-index="3">
+<p><span style="font-size: 250%; color:#CF2000; text-align:center">Expert Opinion</span></p>
+<ul>
+<li>Focus groups</li>
+<li>Interviews</li>
+<li>Surveys</li>
+<li>Expert panels</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="expert-opinion" class="slide level2" data-background-image="img/bg.png">
+<h2>Expert opinion</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img data-src="img/ensembl.png" class="absolute fragment" style="bottom: 10px; width: 50%; " data-fragment-index="1"> <img data-src="img/ahp.png" class="absolute fragment" style="bottom: 10px; right: 5px; width: 50%; " data-fragment-index="2" alt="Analytic Hierarchy Process"></p>
+<aside class="notes">
+<p>Expert opinion is a great alternative when there is a lack of evidence or time. Expert opinioin is also a great way to incorporate the opinions and concerns of stakeholders. There are multiple ways this can be incorporated into the data collection process.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="sensitivity-analysis" class="slide level2" data-background-image="img/bg.png">
+<h2>Sensitivity Analysis</h2>
+<p><img data-src="img/tornado.png" class="fragment absolute" style="top: 80px; width: 40%; " data-fragment-index="0"> <img data-src="img/spearman.png" class="fragment absolute" style="top: 80px; right: 10px; width: 40%; " data-fragment-index="0"> <img data-src="img/rf.png" class="fragment absolute" style="bottom: 10px; width: 40%; " data-fragment-index="1"> <img data-src="img/cart.png" class="fragment absolute" style="bottom: 10px; right: 10px; width: 40%; " data-fragment-index="1"> <img data-src="img/harper.png" class="fragment" data-fragment-index="2"></p>
 </section>
 <section id="current-challenges-with-ra" class="slide level2" data-background-image="img/bg.png">
 <h2>Current challenges with RA</h2>
@@ -567,8 +661,8 @@ How are we doing it?
   
 --->
 </section>
-<section id="quantrra" class="slide level2" data-background-image="img/bg.png">
-<h2>QuantRRA</h2>
+<section id="quantrra-risk-assessment-in-r" class="slide level2" data-background-image="img/bg.png">
+<h2>quantrra: Risk assessment in R</h2>
 <div class="columns">
 <div class="column" style="width:33%;">
 <div class="quarto-figure quarto-figure-center">
@@ -604,19 +698,19 @@ How are we doing it?
           display:block!important;
       }</style></aside>
 </section>
-<section id="quantrra-1" class="slide level2" data-background-image="img/bg.png">
+<section id="quantrra" class="slide level2" data-background-image="img/bg.png">
 <h2>quantrra</h2>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Sample from distributions</span></span>
 <span id="cb1-2"><a href=""></a><span class="fu">ra_sample</span>(<span class="at">x =</span> <span class="st">'pert(0.01,  0.03, 0.64)'</span>, <span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.20646550 0.34606632 0.03641367 0.15434319 0.24444402 0.04976642
- [7] 0.15565368 0.19680746 0.02642795 0.28357137</code></pre>
+<pre><code> [1] 0.11286461 0.06852999 0.30571981 0.23130342 0.05377351 0.10843924
+ [7] 0.03413298 0.19453170 0.15181671 0.19920869</code></pre>
 </div>
 </div>
 </section>
-<section id="quantrra-2" class="slide level2" data-background-image="img/bg.png">
+<section id="quantrra-1" class="slide level2" data-background-image="img/bg.png">
 <h2>quantrra</h2>
 <p><br></p>
 <div class="cell">
@@ -625,7 +719,7 @@ How are we doing it?
 
 </div>
 <img data-src="slides_files/figure-revealjs/ra_plot_dist-1.png" width="960" class="r-stretch"></section>
-<section id="quantrra-3" class="slide level2" data-background-image="img/bg.png">
+<section id="quantrra-2" class="slide level2" data-background-image="img/bg.png">
 <h2>quantrra</h2>
 <p><br></p>
 
@@ -643,37 +737,37 @@ How are we doing it?
           display:block!important;
       }</style></aside>
 </section>
-<section id="quantrra-4" class="slide level2" data-background-image="img/bg.png">
+<section id="quantrra-3" class="slide level2" data-background-image="img/bg.png">
 <h2>quantrra</h2>
 <p><br></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># define a model table using one of the provided examples</span></span>
 <span id="cb4-2"><a href=""></a>m <span class="ot">&lt;-</span> quantrra<span class="sc">::</span>OIRSA</span>
 <span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a><span class="fu">ra_run</span>(<span class="at">m =</span> m<span class="sc">$</span>nodes, <span class="at">nsim =</span> <span class="dv">10</span>) <span class="co"># Run the model </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-4"><a href=""></a><span class="fu">ra_run</span>(<span class="at">m =</span> m, <span class="at">nsim =</span> <span class="dv">10</span>) <span class="co"># Run the model </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>          P1         P2        P3        R1        R2       H1       H2
-1  0.5152637 0.08104240 0.1472671 0.8292495 0.4352019 46.07760 24.48849
-2  0.6344913 0.07319121 0.3876635 0.5643567 0.6837376 11.48246 37.49300
-3  0.6001301 0.16860624 0.2664026 0.7114152 0.6010132 74.95224 19.45106
-4  0.5171029 0.13312370 0.3295570 0.8915226 0.7401387 42.15458 11.94104
-5  0.2450767 0.09643685 0.3066192 0.4840077 0.4324723 17.41548 38.19729
-6  0.4873928 0.15571132 0.3034166 0.8240984 0.2669901 51.31539 43.58153
-7  0.4810877 0.37177200 0.3245175 0.5916030 0.3925706 26.14272 21.46986
-8  0.5656253 0.11780752 0.3034165 0.7189545 0.5532162 41.46080 23.35630
-9  0.3921924 0.13041882 0.2386338 0.8503475 0.6861166 60.41409 17.18120
-10 0.4213764 0.16569390 0.1779100 0.6717943 0.7107458 47.54389 71.77220
-            P4        R3           X         Z          P
-1  0.006149612 0.3608910 0.002219340  70.56609 0.15661012
-2  0.018002778 0.3858719 0.006946766  48.97546 0.34022102
-3  0.026956127 0.4275699 0.011525628  94.40329 1.08805722
-4  0.022686258 0.6598504 0.014969536  54.09562 0.80978635
-5  0.007246768 0.2093199 0.001516893  55.61278 0.08435863
-6  0.023027072 0.2200261 0.005066558  94.89692 0.48080072
-7  0.058041557 0.2322460 0.013479917  47.61258 0.64181366
-8  0.020218134 0.3977373 0.008041505  64.81710 0.52122703
-9  0.012205942 0.5834375 0.007121404  77.59529 0.55258740
-10 0.012421585 0.4774750 0.005930996 119.31608 0.70766324</code></pre>
+<pre><code>          P1         P2        P3        R1        R2        H1       H2
+1  0.5213353 0.12729131 0.1744331 0.6353901 0.5117023 100.44826 16.08468
+2  0.4182868 0.16656444 0.2498435 0.7495283 0.4372456  72.85584 34.56728
+3  0.4910226 0.42013713 0.2590504 0.6077976 0.2958559  22.46179 32.95413
+4  0.3355474 0.32046276 0.2244519 0.7015109 0.6258329  48.78371 40.31443
+5  0.4305247 0.18676188 0.2873518 0.4876877 0.8201492  22.98473 11.00778
+6  0.5902018 0.18723737 0.4043745 0.7484689 0.6104229  94.44883 12.21751
+7  0.5398169 0.13835340 0.4702466 0.6481139 0.6234663  75.15061 37.95840
+8  0.5532345 0.16148946 0.4261390 0.5585004 0.6990359 105.72870 42.26904
+9  0.3448274 0.05702125 0.1805186 0.3849002 0.7271356  28.96834 43.93552
+10 0.6737142 0.35788770 0.3772803 0.6353009 0.6151513  23.03876 23.06493
+            P4        R3            X         Z          P
+1  0.011575634 0.3251306 0.0037635926 116.53295 0.43858254
+2  0.017407023 0.3277279 0.0057047675 107.42312 0.61282395
+3  0.053441276 0.1798205 0.0096098382  55.41592 0.53253800
+4  0.024135411 0.4390287 0.0105961369  89.09814 0.94409604
+5  0.023104692 0.3999766 0.0092413374  33.99251 0.31413630
+6  0.044686553 0.4568826 0.0204165074 106.66633 2.17775400
+7  0.035120602 0.4040772 0.0141914331 113.10902 1.60517902
+8  0.038071921 0.3904118 0.0148637285 147.99774 2.19979824
+9  0.003549445 0.2798746 0.0009933995  72.90386 0.07242266
+10 0.090967564 0.3908061 0.0355506831  46.10369 1.63901777</code></pre>
 </div>
 </div>
 </section>
@@ -735,6 +829,88 @@ How are we doing it?
 </div>
 <aside class="notes">
 <p>Few months ago we had a collaboration with the Visavet group from the Universidad complutense de Madrid, where we used QuantRRA to implement a risk assessment model to estimate the risk of introduction of ASF into spain via legal import of swine products <!-- NEXT --> This is the conceptual model that the student developed, <!-- NEXT --> Then we implemented it on QuantRRA to estimate the risk <!-- NEXT --> and we compared the results of QuantRRA with the ones obtained using the benchmark software <span class="citation" data-cites="Risk">@Risk</span>. Most of the information used in the model was from literature and data regarding the imports of products into the country</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="recap-of-some-r-concepts" class="title-slide slide level1 center" data-background-image="img/bg_title.png">
+<h1>Recap of some R concepts</h1>
+
+</section>
+<section id="r-studio" class="slide level2" data-background-image="img/bg.png">
+<h2>R Studio</h2>
+
+<img data-src="img/I_a.png" class="r-stretch"></section>
+<section id="comments" class="slide level2" data-background-color="black" data-background-image="img/bg_2.png">
+<h2><span style="color:black;">Comments</span></h2>
+<p>COMMENT AS MUCH AS POSSIBLE!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># This is a comment in R it will be only for the user</span></span>
+<span id="cb6-2"><a href=""></a>This is not a comment and will cause an error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What is the difference between line 1 and 2?</p>
+<div class="fragment">
+<p>YES! the <code>#</code> character will make everything after it a comment in that line of code</p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="dv">10</span> <span class="sc">+</span> <span class="dv">10</span> <span class="co"># Everything after will be a comment</span></span>
+<span id="cb7-2"><a href=""></a><span class="dv">7</span> <span class="sc">+</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>Comments are probably the most important feature of programming languages, commenting your code is not only for you (and feature you), it’s also to explain other people what you did and make it easier for them to replicate</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="operators" class="slide level2" data-background-color="black" data-background-image="img/bg_2.png">
+<h2><span style="color:black;">Operators</span></h2>
+<p>Operators are characters with a specific function in R for example</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">3</span> <span class="co"># this is a sum operator</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="dv">3</span> <span class="sc">-</span> <span class="dv">2</span> <span class="co"># this is a subtract operator</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="dv">4</span> <span class="sc">*</span> <span class="dv">4</span> <span class="co"># This is a multiplication</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>Later we will see other kind of operators, but… DONT STRESS about learning everything.</p>
+</div>
+</section>
+<section id="objects" class="slide level2" data-background-color="black" data-background-image="img/bg_2.png">
+<h2><span style="color:black;">Objects</span></h2>
+<p>Objects in R are containers for information, we can create objects with any names we want that start with a letter</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>myNumber <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb14-2"><a href=""></a>myResult <span class="ot">&lt;-</span> myNumber <span class="sc">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<aside class="notes">
+<p>Does anyone notice what operators are we using in those lines of code?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

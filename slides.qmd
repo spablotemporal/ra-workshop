@@ -1,5 +1,5 @@
 ---
-title: "Risk Assessment with quantrra"
+title: "Rapid Risk Assessment"
 author: "Pablo Gomez"
 format: 
   revealjs:
@@ -19,6 +19,21 @@ library(dplyr); library(quantrra)
 <!--
 ## Outline{background-image="img/bg.png"}
   
+  - Rapid risk assessment
+    - Integrating multiple sources:
+      - Observational data
+      - Literature
+      - Expert opinion
+        - 
+      - Understanding the uncertainty
+        - Sensitivity analysis
+      - Engage stakeholders
+      - Start simple, add complexity as needed
+      - Identify assumptions
+      - Perform sensitivity analysis, to identify sources of uncertainty and key parameters
+      - Iterate, update the model with new data, evidence and/or needs
+      - 
+      
   - Risk assessment with quantrra
     - Why we need a new risk assessment framework?
     - Co-development with experts
@@ -33,8 +48,11 @@ library(dplyr); library(quantrra)
   - Demo/exercise
     - vignette
     - shiny app
+  - Intro to R (recap)
 
 -->
+
+<!---
     
 ## What is this workshop{background-image="img/bg.png"}
 </br>
@@ -77,15 +95,21 @@ What is not:
 :::
 ::::
 
-## Outline of the day{background-image="img/bg.png"}
+--->
+
+## Outline{background-image="img/bg.png"}
 
 <br/>
 
 ::: incremental
--   [Introduction]{.black}
--   [Hands on practice]{.black}
--   [More example]{.black}
--   [Future directions]{.black}
+  - [Introduction]{.black}
+    - [What is rapid risk assessment?]{.black}
+    - [Integrating data from different sources]{.black}
+    - [Sensitivity analysis]{.black}
+  - [Risk assessment in R]{.black}
+  -   [Hands on practice]{.black}
+  -   [More example]{.black}
+<!-- -   [Future directions]{.black} -->
 :::
 
 
@@ -96,9 +120,13 @@ What is not:
 
 ![](img/0d_positDash.png){width="80%" fig-align="center"}
 
-# Risk assessment with quantrra{background-image="img/bg_title.png"}
+# Introduction{background-image="img/bg_title.png"}
 
 ## Risk assessment {background-image="img/bg.png"}
+
+
+
+## Rapid Risk Assessment?{background-image="img/bg.png"}
 
 </br>
 
@@ -107,14 +135,109 @@ What is not:
 ![](img/ra/RiskAnalysisComponents.png){.fragment .fade-in-then-out fragment-index=1 fig-align="center"}
 
 
-![](img/ra/ra-classifications.png){.fragment .fade-in-then-out fragment-index=2 fig-align="center"}
+![](img/ra/ra-classifications.png){.fragment .fade-in fragment-index=2 fig-align="center"}
 
+![](img/ra1.jpg){.fragment .fade-in fragment-index=3 .absolute bottom=5}
+![](img/rra1.png){.fragment .fade-in fragment-index=4 .absolute bottom=5 left=5 width="20%"}
 
+![](img/rra2.png){.fragment .fade-in fragment-index=4 .absolute bottom=20 left=150 width="20%"}
 :::
 
 ::: notes
-Risk assessment is such a fundamental activity that a log of agencies benefit from to inform their decision making process. In the context of animal health, risk assessment informa policy regarding imports of animal products. There is plenty of documentation of how to do risk assessment and there are many different methodologies to implement it
+Risk assessment is such a fundamental activity that a lot of agencies benefit from to inform their decision making process. In the context of animal health, risk assessment inform a policy regarding imports of animal products. There is plenty of documentation of how to do risk assessment and there are many different methodologies to implement it
+
+The overall process of risk assessment can take several months. When we talk about Rapid risk assessment (RRA) we just refer to an accelerated process in which the 
+In the absence of observational data or data collection, RRA leverages the lack of information with literature and expert opinion.
+
+These are usually implemented in the initial stages of an adverse public health event, wheras formal risk assessments are produced at a later stage of an event, usually when more time and information is available.
+
+In the lack of information to conduct a torough risk assessment, 
+
+The main objective is to develop an operational tool to facilitate rapid risk assessments for communicable disease incidents, drawing on the systematic methods used in evidence-based medicine or evidence-based practice where possible.
 :::
+
+## [Integrating data from multiple sources]{.r-fit-text} {background-image="img/bg.png"}
+
+::::{.r-stack}
+
+:::{.fragment .fade-in-then-out fragment-index=1 .black}
+
+ 
+[Observational/Experimental data]{style="font-size: 200%; color:#CF2000; text-align:center"}
+
+:::{.columns}
+:::{.column width="50%"}
+Fitting distributions
+
+![](img/dist-fit.png)
+:::
+
+:::{.column width="50%"}
+
+Summary statistics (min, max, mean, median)
+
+![](img/summary-stats.png)
+
+:::
+
+:::
+
+:::
+
+:::{.fragment .fade-in-then-out fragment-index=2 .black}
+
+[Literature]{style="font-size: 250%; color:#CF2000; text-align:center"}
+
+![](img/lit.png)
+
+:::
+
+:::{.fragment .fade-in-then-out fragment-index=3 .black}
+
+[Expert Opinion]{style="font-size: 250%; color:#CF2000; text-align:center"}
+
+  - Focus groups
+  - Interviews
+  - Surveys
+  - Expert panels
+  
+:::
+
+::::
+
+## Expert opinion {background-image="img/bg.png"}
+
+```{r echo=F, warning=F}
+list(
+  ra_sample(x = "uniform(50, 300)", n = 10e3) %>% 
+    ra_plot_dist(main = "Uniform distribution (50, 300)"),
+  
+  ra_sample(x = "triangle(50, 250, 300)", n = 10e3) %>% 
+    ra_plot_dist(main = "Triangular distribution (50, 250, 300)"),
+  
+  ra_sample(x = "pert(50, 250, 300)", n = 10e3) %>% 
+    ra_plot_dist(main = "Pert distribution (50, 250, 300)")
+) %>% 
+  ggarrange(plotlist = ., ncol = 3, nrow = 2)
+
+```
+
+![](img/ensembl.png){width="50%" .absolute bottom=10 .fragment fragment-index=1}
+![Analytic Hierarchy Process](img/ahp.png){width="50%" .absolute bottom=10 right=5  .fragment fragment-index=2}
+
+
+::: notes
+Expert opinion is a great alternative when there is a lack of evidence or time. Expert opinioin is also a great way to incorporate the opinions and concerns of stakeholders.
+There are multiple ways this can be incorporated into the data collection process. 
+:::
+
+## Sensitivity Analysis {background-image="img/bg.png"}
+
+![](img/tornado.png){.fragment fragment-index=0 .absolute top=80 width="40%"}
+![](img/spearman.png){.fragment fragment-index=0 .absolute top=80 right=10 width="40%"}
+![](img/rf.png){.fragment fragment-index=1 .absolute bottom=10 width="40%"}
+![](img/cart.png){.fragment fragment-index=1 .absolute bottom=10 right=10 width="40%"}
+![](img/harper.png){.fragment fragment-index=2}
 
 ## Current challenges with RA {background-image="img/bg.png"}
 
@@ -161,8 +284,7 @@ How are we doing it?
   
 --->
 
-
-## QuantRRA {background-image="img/bg.png"}
+## quantrra: Risk assessment in R {background-image="img/bg.png"}
 
 ::::{.columns}
 
@@ -224,7 +346,7 @@ This platform facilitates to the user the translation of conceptual decision tre
 # define a model table using one of the provided examples
 m <- quantrra::OIRSA
 
-ra_run(m = m$nodes, nsim = 10) # Run the model 
+ra_run(m = m, nsim = 10) # Run the model 
 ```
 
 
@@ -272,6 +394,65 @@ Then we implemented it on QuantRRA to estimate the risk
 <!-- NEXT -->
 and we compared the results of QuantRRA with the ones obtained using the benchmark software @Risk. 
 Most of the information used in the model was from literature and data regarding the imports of products into the country
+:::
+
+# Recap of some R concepts {background-image="img/bg_title.png"}
+
+## R Studio {background-image="img/bg.png"}
+
+![](img/I_a.png)
+
+## [Comments]{style="color:black;"} {background-color="black" background-image="img/bg_2.png"}
+
+COMMENT AS MUCH AS POSSIBLE!
+
+```{r echo = T, eval = F}
+# This is a comment in R it will be only for the user
+This is not a comment and will cause an error
+```
+
+What is the difference between line 1 and 2?
+
+. . .
+
+YES! the `#` character will make everything after it a comment in that line of code
+
+. . .
+
+```{r echo = T, eval = F}
+10 + 10 # Everything after will be a comment
+7 + 4
+```
+
+::: notes
+Comments are probably the most important feature of programming languages, commenting your code is not only for you (and feature you), it's also to explain other people what you did and make it easier for them to replicate
+:::
+
+## [Operators]{style="color:black;"} {background-color="black" background-image="img/bg_2.png"}
+
+Operators are characters with a specific function in R for example
+
+```{r echo = T}
+3 + 3 # this is a sum operator
+3 - 2 # this is a subtract operator
+4 * 4 # This is a multiplication
+```
+
+. . .
+
+Later we will see other kind of operators, but... DONT STRESS about learning everything.
+
+## [Objects]{style="color:black;"} {background-color="black" background-image="img/bg_2.png"}
+
+Objects in R are containers for information, we can create objects with any names we want that start with a letter
+
+```{r echo = T}
+myNumber <- 4
+myResult <- myNumber * 5
+```
+
+::: notes
+Does anyone notice what operators are we using in those lines of code?
 :::
 
 # [Hands on practice](https://posit.cloud/content/7817019)
